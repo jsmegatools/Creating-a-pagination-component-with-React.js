@@ -1,0 +1,25 @@
+#user-details-container {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+}
+#user-details-message {
+  position: fixed;
+  top: 0;
+  background: #00f;
+}
+#user-details-home-link {
+  margin-bottom: 20px;
+}
+#user-details-form {
+  display: flex;
+  flex-direction: column;
+}
+#user-details-avatar {
+  height: 200px;
+  width: 200px;
+}
+#user-details-avatar img {
+  max-width: 100%;
+  max-height: 100%;
+}
