@@ -11,6 +11,7 @@ class UserList extends Component {
     super(props);
     this.state = {
       users: [],
+      renderedUsers: [],
       page: 1,
       count: 10
     };
@@ -18,23 +19,24 @@ class UserList extends Component {
   }
 
   handlePageChange(page) {
+    const renderedUsers = this.state.users.slice(page - 1, page + 1);
     // here we request the new files
-    this.setState({ page });
+    this.setState({ page, renderedUsers });
   }
 
   componentDidMount() {
     setTimeout(() => {
-      this.setState({ users });
+      this.setState({ users, renderedUsers: users.slice(0, 2) });
     })
   }
 
   render() {
-    const { page, count, users } = this.state;
+    const { page, count, renderedUsers } = this.state;
     return (
       <div>
         <ul id="user-list">
           {
-            users.map(user =>
+            renderedUsers.map(user =>
             <li key={user.id} className="user-list-item">
               <UserListItem {...user} />
             </li>)
